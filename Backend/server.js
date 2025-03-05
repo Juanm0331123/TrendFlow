@@ -1,10 +1,10 @@
 import express from "express";
 
+import reportRoutes from "./routes/reportRoutes.js";
 import currencyRoutes from "./routes/currencyRoutes.js";
 
 import dotenv from "dotenv";
 import connectDB from "./database/connection.js";
-
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -12,12 +12,8 @@ const PORT = process.env.PORT || 5000;
 dotenv.config();
 app.use(express.json());
 
+app.use("/", reportRoutes);
 app.use("/", currencyRoutes);
-
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
 
 const startServer = async () => {
   try {
@@ -31,4 +27,3 @@ const startServer = async () => {
 };
 
 startServer();
-

@@ -1,4 +1,3 @@
-
 import express from "express";
 import { getCurrencyData } from "../controllers/currencyController.js";
 
